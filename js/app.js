@@ -12,11 +12,11 @@ appConfig.statusText = 'TibCast';
 cast.receiver.logger.setLevelValue(cast.receiver.LoggerLevel.DEBUG);
 cast.player.api.setLoggerLevel(cast.player.api.LoggerLevel.DEBUG);
 
-
 window.mediaManager['origOnLoad'] = mediaManager.onLoad;
 mediaManager.onLoad = function (event) {
   alertify.log("Loading...");
   if (window.player !== null) {
+    
     player.unload();    // Must unload before starting again.
     window.player = null;
   }
