@@ -1,10 +1,14 @@
+
+
+import * as alertify from 'alertify.js';
+
 window.mediaElement = document.getElementById('media');
 window.mediaManager = new cast.receiver.MediaManager(window.mediaElement);
 window.castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
+
 let appConfig = new cast.receiver.CastReceiverManager.Config();
 appConfig.statusText = 'TibCast';
 
-import * as alertify from 'alertify.js';
 
 window.mediaManager['origOnLoad'] = mediaManager.onLoad;
 mediaManager.onLoad = function (event) {
@@ -16,7 +20,6 @@ mediaManager.onLoad = function (event) {
 var customMessageBus = castReceiverManager.getCastMessageBus('urn:x-cast:super.awesome.example');
 customMessageBus.onMessage = event => {
   alertify.log(JSON.stringify(event));
-
 }
 
 window.castReceiverManager.start(appConfig);

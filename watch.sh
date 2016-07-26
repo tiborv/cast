@@ -1,1 +1,1 @@
-../gitwatch/gitwatch.sh -r origin ./
+../gitwatch/gitwatch.sh -r origin ./static/
