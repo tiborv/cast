@@ -58,7 +58,6 @@
 	
 	window.mediaElement = document.getElementById('media');
 	window.mediaManager = new cast.receiver.MediaManager(window.mediaElement);
-	window.host = new cast.player.api.Host({ 'mediaElement': window.mediaElement, 'url': url });
 	window.castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
 	
 	var appConfig = new cast.receiver.CastReceiverManager.Config();
@@ -68,6 +67,7 @@
 	mediaManager.onLoad = function (event) {
 	  log(event);
 	  var url = event.data['media']['contentId'];
+	  window.host = new cast.player.api.Host({ 'mediaElement': window.mediaElement, 'url': url });
 	
 	  window.host.updateSegmentRequestInfo = function (requestInfo) {
 	    // example of setting CORS withCredentials
