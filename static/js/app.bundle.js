@@ -66,15 +66,9 @@
 	    player.unload(); // Must unload before starting again.
 	    window.player = null;
 	  }
-	  // This trivial parser is by no means best practice, it shows how to access
-	  // event data, and uses the a string search of the suffix, rather than looking
-	  // at the MIME type which would be better.  In practice, you will know what
-	  // content you are serving while writing your player.
 	  if (event.data['media'] && event.data['media']['contentId']) {
 	    console.log('Starting media application');
 	    var url = event.data['media']['contentId'];
-	    // Create the Host - much of your interaction with the library uses the Host and
-	    // methods you provide to it.
 	    window.host = new cast.player.api.Host({ 'mediaElement': mediaElement, 'url': url });
 	    var ext = url.substring(url.lastIndexOf('.'), url.length);
 	    var initStart = event.data['media']['currentTime'] || 0;
@@ -91,8 +85,6 @@
 	      // Smooth Streaming
 	      protocol = cast.player.api.CreateSmoothStreamingProtocol(host);
 	    }
-	    // How to override a method in Host. I know that it's safe to just provide this
-	    // method.
 	    host.onError = function (errorCode) {
 	      console.log("Fatal Error - " + errorCode);
 	      if (window.player) {
