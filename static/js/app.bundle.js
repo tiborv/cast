@@ -63,6 +63,7 @@
 	    window.close();
 	  }
 	};
+	alert("Starting...");
 
 /***/ }
 /******/ ]);
