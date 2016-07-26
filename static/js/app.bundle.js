@@ -69,27 +69,7 @@
 	window.mediaManager.onLoad = function (event) {
 	  log(event);
 	  var url = event.data['media']['contentId'];
-	  window.host = new cast.player.api.Host({ 'mediaElement': window.mediaElement, 'url': url });
-	  window.mediaElement.autoplay = true;
-	  window.host.updateSegmentRequestInfo = function (requestInfo) {
-	    // example of setting CORS withCredentials
-	    requestInfo.withCredentials = true;
-	    // example of setting headers
-	    log(requestInfo.headers);
-	    log("SWEGOOO");
-	    requestInfo.headers = {};
-	    requestInfo.headers['content-type'] = 'text/xml;charset=utf-8';
-	  };
-	  host.onError = log;
-	  var protocol = cast.player.api.CreateDashStreamingProtocol(host);
-	
-	  if (protocol !== null) {
-	    log('lets go');
-	    window.player = new cast.player.api.Player(host);
-	    window.player.load(protocol, initStart);
-	  } else {
-	    log('no protocol');
-	  }
+	  window.mediaManager['origOnLoad'](event);
 	};
 	
 	var customMessageBus = castReceiverManager.getCastMessageBus('urn:x-cast:tibcast');
