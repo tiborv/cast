@@ -5,7 +5,7 @@ let appConfig = new cast.receiver.CastReceiverManager.Config();
 appConfig.statusText = 'TibCast';
 window.castReceiverManager.start(appConfig);
 
-import * as alert from 'alert';
+import * as alert from 'alerts';
 
 var customMessageBus = castReceiverManager.getCastMessageBus('urn:x-cast:super.awesome.example');
 customMessageBus.onMessage = function(event) {
