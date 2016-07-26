@@ -56,6 +56,7 @@
 	  return alertify.delay(0).log(JSON.stringify(e));
 	};
 	window.player = null;
+	cast.player.api.setLoggerLevel(cast.player.api.LoggerLevel.DEBUG);
 	
 	window.mediaElement = document.getElementById('media');
 	window.mediaManager = new cast.receiver.MediaManager(window.mediaElement);
