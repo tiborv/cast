@@ -30,6 +30,7 @@ window.mediaManager.onLoad = function (event) {
       window.player = null;
     }
   };
+  window.player = new cast.player.api.Player(host);
   window.mediaManager['origOnLoad'](event);
 }
 
