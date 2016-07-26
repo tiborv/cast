@@ -24,12 +24,12 @@ mediaManager.onLoad = function (event) {
     requestInfo.headers['content-type'] = 'text/xml;charset=utf-8';
   };
   host.onError = log;
-  let protocol = cast.player.api.CreateDashStreamingProtocol(host);
+  let protocol = cast.player.api.CreateSmoothStreamingProtocol(host);
 
   window.player = new cast.player.api.Player(host);
   window.player.load(protocol, 0);
-
   //window.mediaManager['origOnLoad'](event);
+
 }
 
 var customMessageBus = castReceiverManager.getCastMessageBus('urn:x-cast:tibcast');
