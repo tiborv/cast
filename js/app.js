@@ -2,7 +2,7 @@
 
 import * as alertify from 'alertify.js';
 let log = e =>alertify.log(JSON.stringify(e));
-console.log = log;
+
 window.mediaElement = document.getElementById('media');
 window.mediaManager = new cast.receiver.MediaManager(window.mediaElement);
 window.castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
