@@ -17,7 +17,7 @@ mediaManager.onLoad = function (event) {
 }
 
 
-var customMessageBus = castReceiverManager.getCastMessageBus('urn:x-cast:super.awesome.example');
+var customMessageBus = castReceiverManager.getCastMessageBus('urn:x-cast:tibcast');
 customMessageBus.onMessage = event => {
   alertify.log(JSON.stringify(event));
 }

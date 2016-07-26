@@ -65,7 +65,7 @@
 	  window.mediaManager['origOnLoad'](event);
 	};
 	
-	var customMessageBus = castReceiverManager.getCastMessageBus('urn:x-cast:super.awesome.example');
+	var customMessageBus = castReceiverManager.getCastMessageBus('urn:x-cast:tibcast');
 	customMessageBus.onMessage = function (event) {
 	  alertify.log(JSON.stringify(event));
 	};
