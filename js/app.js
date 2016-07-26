@@ -10,12 +10,11 @@ window.castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
 let appConfig = new cast.receiver.CastReceiverManager.Config();
 appConfig.statusText = 'TibCast';
 
-window.mediaManager['origOnLoad'] = mediaManager.onLoad;
+window.mediaManager['origOnLoad'] = window.mediaManager.onLoad;
 window.mediaManager.onLoad = function (event) {
   log(event);
   var url = event.data['media']['contentId'];
   window.mediaManager['origOnLoad'](event);
-
 }
 
 var customMessageBus = castReceiverManager.getCastMessageBus('urn:x-cast:tibcast');
