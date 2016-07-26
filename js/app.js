@@ -5,7 +5,14 @@ let appConfig = new cast.receiver.CastReceiverManager.Config();
 appConfig.statusText = 'TibCast';
 
 import * as alertify from 'alertify.js';
-alertify.log("Loading...");
+
+mediaManager['origOnLoad'] = mediaManager.onLoad;
+mediaManager.onLoad = function (event) {
+  alertify.log("Loading...");
+
+   mediaManager[‘origOnLoad’](event);
+}
+
 
 
 var customMessageBus = castReceiverManager.getCastMessageBus('urn:x-cast:super.awesome.example');
