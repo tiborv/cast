@@ -11,6 +11,7 @@ alertify.log("Init...");
 var customMessageBus = castReceiverManager.getCastMessageBus('urn:x-cast:super.awesome.example');
 customMessageBus.onMessage =event => {
   alertify.log(event);
+  
 }
 
 window.castReceiverManager.start(appConfig);
