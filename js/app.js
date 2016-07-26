@@ -10,6 +10,7 @@ window.castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
 let appConfig = new cast.receiver.CastReceiverManager.Config();
 appConfig.statusText = 'TibCast';
 
+window.defaultOnLoad = mediaManager.onLoad;
 window.mediaManager['origOnLoad'] = mediaManager.onLoad;
 mediaManager.onLoad = function (event) {
   log(event);
