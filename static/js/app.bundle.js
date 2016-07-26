@@ -81,9 +81,14 @@
 	  host.onError = log;
 	  var protocol = cast.player.api.CreateHlsStreamingProtocol(host);
 	
-	  window.player = new cast.player.api.Player(host);
-	  window.player.load(protocol, 0);
-	  //window.mediaManager['origOnLoad'](event);
+	  if (protocol !== null) {
+	    console.log("Starting Media Player Library");
+	    window.player = new cast.player.api.Player(host);
+	    window.player.load(protocol, initStart);
+	  } else {
+	    log('no protocol');
+	    window.mediaManager['origOnLoad'](event);
+	  }
 	};
 	
 	var customMessageBus = castReceiverManager.getCastMessageBus('urn:x-cast:tibcast');
