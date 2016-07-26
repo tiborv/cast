@@ -26,14 +26,9 @@ mediaManager.onLoad = function (event) {
   host.onError = log;
   let protocol = cast.player.api.CreateHlsStreamingProtocol(host);
 
-  if (protocol !== null) {
-      console.log("Starting Media Player Library");
-      window.player = new cast.player.api.Player(host);
-      window.player.load(protocol, initStart);
-    }
-  else {
-      window.defaultOnLoad(event);    // do the default process
-  }
+  window.player = new cast.player.api.Player(host);
+  window.player.load(protocol, 0);
+  //window.mediaManager['origOnLoad'](event);
 
 }
 
