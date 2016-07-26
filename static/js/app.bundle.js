@@ -80,6 +80,12 @@
 	  };
 	  host.onError = function (errorCode) {
 	    log("Fatal Error - " + errorCode);
+	    log("ERRS:");
+	
+	    log(cast.player.api.ErrorCode.MANIFEST);
+	    log(cast.player.api.ErrorCode.PLAYBACK);
+	    log(cast.player.api.ErrorCode.PLAYBACK);
+	
 	    if (window.player) {
 	      window.player.unload();
 	      window.player = null;
