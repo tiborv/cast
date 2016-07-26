@@ -15,6 +15,14 @@ window.mediaManager.onLoad = function (event) {
   log(event.data);
   var url = event.data['media']['contentId'];
   var host = new cast.player.api.Host({'mediaElement':window.mediaElement, 'url':url});
+  host.updateSegmentRequestInfo = function(requestInfo) {
+  // example of setting CORS withCredentials
+  requestInfo.withCredentials = true;
+  // example of setting headers
+  console.log("RUNNING!");
+  requestInfo.headers = {};
+  requestInfo.headers['content-type'] = 'text/xml;charset=utf-8';
+};
   window.mediaManager['origOnLoad'](event);
 }
 
