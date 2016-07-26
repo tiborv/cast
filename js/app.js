@@ -3,16 +3,18 @@ window.mediaManager = new cast.receiver.MediaManager(window.mediaElement);
 window.castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
 let appConfig = new cast.receiver.CastReceiverManager.Config();
 appConfig.statusText = 'TibCast';
-window.castReceiverManager.start(appConfig);
 
 import * as alertify from 'alertify.js';
-alertify.error("You've clicked Cancel");
+alertify.log("Init...");
+
 
 var customMessageBus = castReceiverManager.getCastMessageBus('urn:x-cast:super.awesome.example');
-customMessageBus.onMessage = function(event) {
-    alert(event);
+customMessageBus.onMessage =event => {
+  alertify.log(event);
 }
 
+
+window.castReceiverManager.start(appConfig);
 window.castReceiverManager.onSenderDisconnected = event => {
   if(window.castReceiverManager.getSenders().length == 0 &&
     event.reason == cast.receiver.system.DisconnectReason.REQUESTED_BY_SENDER) {
