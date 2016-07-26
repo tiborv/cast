@@ -1,7 +1,11 @@
 window.mediaElement = document.getElementById('media');
 window.mediaManager = new cast.receiver.MediaManager(window.mediaElement);
 window.castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
-window.castReceiverManager.start();
+let appConfig = new cast.receiver.CastReceiverManager.Config();
+appConfig.statusText = 'HELLO';
+
+
+window.castReceiverManager.start(appConfig);
 
 
 window.castReceiverManager.onSenderDisconnected = event => {
