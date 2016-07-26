@@ -73,6 +73,7 @@
 	    requestInfo.withCredentials = true;
 	    // example of setting headers
 	    log(requestInfo.headers);
+	    log("SWEGOOO");
 	    requestInfo.headers = {};
 	    requestInfo.headers['content-type'] = 'text/xml;charset=utf-8';
 	  };
