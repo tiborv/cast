@@ -86,6 +86,8 @@
 	    }
 	  };
 	  window.player = new cast.player.api.Player(host);
+	  var protocol = cast.player.api.CreateDashStreamingProtocol(host);
+	
 	  window.mediaManager['origOnLoad'](event);
 	};
 	

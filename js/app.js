@@ -31,6 +31,8 @@ window.mediaManager.onLoad = function (event) {
     }
   };
   window.player = new cast.player.api.Player(host);
+  let protocol = cast.player.api.CreateDashStreamingProtocol(host);
+
   window.mediaManager['origOnLoad'](event);
 }
 
