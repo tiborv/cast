@@ -82,6 +82,7 @@
 	  var protocol = cast.player.api.CreateDashStreamingProtocol(host);
 	
 	  window.player = new cast.player.api.Player(host);
+	  window.player.load(protocol, 0);
 	
 	  window.mediaManager['origOnLoad'](event);
 	};
