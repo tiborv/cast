@@ -81,7 +81,7 @@
 	    requestInfo.headers['content-type'] = 'text/xml;charset=utf-8';
 	  };
 	  host.onError = log;
-	  var protocol = cast.player.api.CreateHlsStreamingProtocol(host);
+	  var protocol = cast.player.api.CreateSmoothStreamingProtocol(host);
 	
 	  if (protocol !== null) {
 	    log('lets go');
