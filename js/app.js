@@ -9,7 +9,7 @@ import * as alertify from 'alertify.js';
 window.mediaManager['origOnLoad'] = mediaManager.onLoad;
 mediaManager.onLoad = function (event) {
   alertify.log("Loading...");
-  window.mediaManager[‘origOnLoad’](event);
+  window.mediaManager['origOnLoad'](event);
 }
 
 
