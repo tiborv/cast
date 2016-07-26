@@ -79,6 +79,7 @@
 	    requestInfo.headers['content-type'] = 'text/xml;charset=utf-8';
 	  };
 	  host.onError = log;
+	  window.player = new cast.player.api.Player(host);
 	  window.mediaManager['origOnLoad'](event);
 	};
 	
