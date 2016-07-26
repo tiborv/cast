@@ -11,6 +11,7 @@ appConfig.statusText = 'TibCast';
 window.mediaManager['origOnLoad'] = mediaManager.onLoad;
 mediaManager.onLoad = function (event) {
   log(event);
+  var url = event.data['media']['contentId'];
   window.host = new cast.player.api.Host(
       {'mediaElement':mediaElement, 'url':url});
   window.mediaManager['origOnLoad'](event);
