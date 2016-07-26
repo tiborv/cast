@@ -24,11 +24,11 @@ mediaManager.onLoad = function (event) {
     requestInfo.headers['content-type'] = 'text/xml;charset=utf-8';
   };
   host.onError = log;
-  let protocol = cast.player.api.CreateSmoothStreamingProtocol(host);
+  let protocol = cast.player.api.CreateDashStreamingProtocol(host);
 
   window.player = new cast.player.api.Player(host);
   window.player.load(protocol, 0);
-  //window.mediaManager['origOnLoad'](event);
+  window.mediaManager['origOnLoad'](event);
 
 }
 
