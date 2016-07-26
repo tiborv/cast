@@ -19,5 +19,6 @@ module.exports = {
     path: './static/js/',
     filename: "[name].bundle.js",
     publicPath: '/cast/static/js/'
+    
   },
 };
