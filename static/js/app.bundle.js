@@ -52,7 +52,6 @@
 	window.castReceiverManager.start(appConfig);
 	
 	import * as alert from 'alert';
-	alert('Foo');
 	
 	var customMessageBus = castReceiverManager.getCastMessageBus('urn:x-cast:super.awesome.example');
 	customMessageBus.onMessage = function (event) {
