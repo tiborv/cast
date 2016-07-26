@@ -1,0 +1,30 @@
+{
+  "name": "cast",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tiborv/cast.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tiborv/cast/issues"
+  },
+  "homepage": "https://github.com/tiborv/cast#readme",
+  "dependencies": {
+    "babel-core": "^6.9.1",
+    "babel-eslint": "^6.1.2",
+    "babel-loader": "^6.2.2",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.3.13",
+    "babel-preset-stage-0": "^6.3.13",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "superagent": "^2.1.0",
+    "webpack": "^1.13.1"
+  }
+}
