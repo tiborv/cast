@@ -68,6 +68,7 @@
 	window.mediaManager['origOnLoad'] = mediaManager.onLoad;
 	mediaManager.onLoad = function (event) {
 	  log("SWAG");
+	
 	  window.mediaManager['origOnLoad'](event);
 	};
 	
