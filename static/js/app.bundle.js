@@ -79,14 +79,23 @@
 	    requestInfo.headers['content-type'] = 'text/xml;charset=utf-8';
 	  };
 	  host.onError = function (errorCode) {
-	    log("Fatal Error - " + errorCode);
-	    log("ERRS:");
+	    switch (errorCode) {
+	      case cast.player.api.ErrorCode.MANIFEST:
+	        log("MANIFEST");
+	        break;
+	      case cast.player.api.ErrorCode.PLAYBACK:
+	        log("PLAYBACK");
+	        break;
+	      case cast.player.api.ErrorCode.MEDIAKEYS:
+	        log("MEDIAKEYS");
+	        break;
+	      case cast.player.api.ErrorCode.NETWORK:
+	        log("NETWORK");
+	        break;
+	      default:
+	        log("WUT");
 	
-	    log(cast.player.api.ErrorCode.MANIFEST);
-	    log(cast.player.api.ErrorCode.PLAYBACK);
-	    log(cast.player.api.ErrorCode.MEDIAKEYS);
-	    log(cast.player.api.ErrorCode.NETWORK);
-	
+	    }
 	    if (window.player) {
 	      window.player.unload();
 	      window.player = null;
