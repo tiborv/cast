@@ -1,4 +1,5 @@
 import * as alertify from 'alertify.js';
+alertify.set({ delay: 10000000 });
 let log = e =>alertify.log(JSON.stringify(e));
 
 window.mediaElement = document.getElementById('media');
