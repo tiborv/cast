@@ -22,7 +22,14 @@ window.mediaManager.onLoad = function (event) {
   console.log("RUNNING!");
   requestInfo.headers = {};
   requestInfo.headers['content-type'] = 'text/xml;charset=utf-8';
-};
+  };
+  host.onError = function(errorCode) {
+    log("Fatal Error - " + errorCode);
+    if (window.player) {
+      window.player.unload();
+      window.player = null;
+    }
+  };
   window.mediaManager['origOnLoad'](event);
 }
 
