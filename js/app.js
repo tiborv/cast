@@ -14,6 +14,7 @@ window.mediaManager['origOnLoad'] = window.mediaManager.onLoad;
 window.mediaManager.onLoad = function (event) {
   log(event.data);
   var url = event.data['media']['contentId'];
+  var host = new cast.player.api.Host({'mediaElement':window.mediaElement, 'url':url});
   window.mediaManager['origOnLoad'](event);
 }
 
