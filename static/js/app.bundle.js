@@ -79,7 +79,7 @@
 	    requestInfo.headers['content-type'] = 'text/xml;charset=utf-8';
 	  };
 	  host.onError = log;
-	  var protocol = cast.player.api.CreateDashStreamingProtocol(host);
+	  var protocol = cast.player.api.CreateHlsStreamingProtocol(host);
 	
 	  window.player = new cast.player.api.Player(host);
 	  window.player.load(protocol, 0);
