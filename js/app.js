@@ -1,5 +1,6 @@
 import * as alertify from 'alertify.js';
 let log = e => alertify.delay(0).log(JSON.stringify(e));
+window.player = null;
 
 window.mediaElement = document.getElementById('media');
 window.mediaManager = new cast.receiver.MediaManager(window.mediaElement);
@@ -34,8 +35,6 @@ mediaManager.onLoad = function (event) {
       log('no protocol');
       window.mediaManager['origOnLoad'](event);
     }
-
-
 }
 
 var customMessageBus = castReceiverManager.getCastMessageBus('urn:x-cast:tibcast');

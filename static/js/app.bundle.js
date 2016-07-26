@@ -55,6 +55,7 @@
 	var log = function log(e) {
 	  return alertify.delay(0).log(JSON.stringify(e));
 	};
+	window.player = null;
 	
 	window.mediaElement = document.getElementById('media');
 	window.mediaManager = new cast.receiver.MediaManager(window.mediaElement);
