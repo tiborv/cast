@@ -6,6 +6,7 @@ appConfig.statusText = 'TibCast';
 window.castReceiverManager.start(appConfig);
 
 import * as alertify from 'alertify.js';
+alertify.error("You've clicked Cancel");
 
 var customMessageBus = castReceiverManager.getCastMessageBus('urn:x-cast:super.awesome.example');
 customMessageBus.onMessage = function(event) {
@@ -18,4 +19,3 @@ window.castReceiverManager.onSenderDisconnected = event => {
       window.close();
   }
 }
-alertify.error("You've clicked Cancel");
