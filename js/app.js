@@ -9,7 +9,8 @@ window.castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
 let appConfig = new cast.receiver.CastReceiverManager.Config();
 appConfig.statusText = 'TibCast';
 
-
+cast.receiver.logger.setLevelValue(cast.receiver.LoggerLevel.DEBUG);
+cast.player.api.setLoggerLevel(cast.player.api.LoggerLevel.DEBUG);
 window.mediaManager['origOnLoad'] = mediaManager.onLoad;
 mediaManager.onLoad = function (event) {
   alertify.log("Loading...");
