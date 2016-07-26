@@ -6,10 +6,10 @@ appConfig.statusText = 'TibCast';
 
 import * as alertify from 'alertify.js';
 
-mediaManager['origOnLoad'] = mediaManager.onLoad;
+window.mediaManager['origOnLoad'] = mediaManager.onLoad;
 mediaManager.onLoad = function (event) {
-  alertify.log("Loading...");  
-  mediaManager[‘origOnLoad’](event);
+  alertify.log("Loading...");
+  window.mediaManager[‘origOnLoad’](event);
 }
 
 
