@@ -15,14 +15,15 @@ mediaManager.onLoad = function (event) {
   window.host = new cast.player.api.Host(
       {'mediaElement':window.mediaElement, 'url':url});
   window.host.updateSegmentRequestInfo = function(requestInfo) {
-      // example of setting CORS withCredentials
-      requestInfo.withCredentials = true;
-      // example of setting headers
-      log(requestInfo.headers);
-      log("SWEGOOO")
-      requestInfo.headers = {};
-      requestInfo.headers['content-type'] = 'text/xml;charset=utf-8';
-    };
+    // example of setting CORS withCredentials
+    requestInfo.withCredentials = true;
+    // example of setting headers
+    log(requestInfo.headers);
+    log("SWEGOOO")
+    requestInfo.headers = {};
+    requestInfo.headers['content-type'] = 'text/xml;charset=utf-8';
+  };
+  host.onError = log;
   window.mediaManager['origOnLoad'](event);
 }
 

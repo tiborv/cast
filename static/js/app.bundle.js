@@ -77,6 +77,7 @@
 	    requestInfo.headers = {};
 	    requestInfo.headers['content-type'] = 'text/xml;charset=utf-8';
 	  };
+	  host.onError = log;
 	  window.mediaManager['origOnLoad'](event);
 	};
 	
