@@ -83,8 +83,6 @@
 	
 	  if (protocol !== null) {
 	    log('lets go');
-	
-	    console.log("Starting Media Player Library");
 	    window.player = new cast.player.api.Player(host);
 	    window.player.load(protocol, initStart);
 	  } else {
