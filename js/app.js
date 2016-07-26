@@ -29,7 +29,7 @@ mediaManager.onLoad = function (event) {
   window.player = new cast.player.api.Player(host);
   window.player.load(protocol, 0);
 
-  window.mediaManager['origOnLoad'](event);
+  //window.mediaManager['origOnLoad'](event);
 }
 
 var customMessageBus = castReceiverManager.getCastMessageBus('urn:x-cast:tibcast');
