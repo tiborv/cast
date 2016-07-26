@@ -18,6 +18,6 @@ module.exports = {
   output: {
     path: './static/js/',
     filename: "[name].bundle.js",
-    publicPath: './cast/static/js/'
+    publicPath: '/cast/static/js/'
   },
 };
