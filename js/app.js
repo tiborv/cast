@@ -13,7 +13,6 @@ customMessageBus.onMessage =event => {
   alertify.log(event);
 }
 
-
 window.castReceiverManager.start(appConfig);
 window.castReceiverManager.onSenderDisconnected = event => {
   if(window.castReceiverManager.getSenders().length == 0 &&
