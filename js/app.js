@@ -5,7 +5,7 @@ let appConfig = new cast.receiver.CastReceiverManager.Config();
 appConfig.statusText = 'TibCast';
 window.castReceiverManager.start(appConfig);
 
-import * as alert from 'alertify.js';
+import * as alertify from 'alertify.js';
 
 var customMessageBus = castReceiverManager.getCastMessageBus('urn:x-cast:super.awesome.example');
 customMessageBus.onMessage = function(event) {
@@ -18,4 +18,4 @@ window.castReceiverManager.onSenderDisconnected = event => {
       window.close();
   }
 }
-alert("Starting...");
+alertify.error("You've clicked Cancel");
