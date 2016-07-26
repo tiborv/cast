@@ -55,7 +55,7 @@
 	var log = function log(e) {
 	  return alertify.log(JSON.stringify(e));
 	};
-	
+	console.log = log;
 	window.mediaElement = document.getElementById('media');
 	window.mediaManager = new cast.receiver.MediaManager(window.mediaElement);
 	window.castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
@@ -76,6 +76,7 @@
 	  if (event.data['media'] && event.data['media']['contentId']) {
 	    log('Starting media application');
 	    var url = event.data['media']['contentId'];
+	    console.log();;
 	  }
 	  window.mediaManager['origOnLoad'](event);
 	};
