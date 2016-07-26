@@ -14,7 +14,7 @@ cast.player.api.setLoggerLevel(cast.player.api.LoggerLevel.DEBUG);
 
 window.mediaManager['origOnLoad'] = mediaManager.onLoad;
 mediaManager.onLoad = function (event) {
-  log("Loading...");
+  console.log("SWAG");
   if (window.player !== null) {
     player.unload();    // Must unload before starting again.
     window.player = null;
