@@ -15,15 +15,13 @@ cast.player.api.setLoggerLevel(cast.player.api.LoggerLevel.DEBUG);
 window.mediaManager['origOnLoad'] = mediaManager.onLoad;
 mediaManager.onLoad = function (event) {
   log("SWAG");
-
-  
   window.mediaManager['origOnLoad'](event);
 }
 
 
 var customMessageBus = castReceiverManager.getCastMessageBus('urn:x-cast:tibcast');
 customMessageBus.onMessage = event => {
-  alertify.log(JSON.stringify(event));
+  log(event);
 }
 
 window.castReceiverManager.start(appConfig);
