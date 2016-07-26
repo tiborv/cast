@@ -14,7 +14,7 @@ mediaManager.onLoad = function (event) {
   log(event);
   var url = event.data['media']['contentId'];
   window.host = new cast.player.api.Host({'mediaElement':window.mediaElement, 'url':url});
-
+  mediaElement.autoplay = true;
   window.host.updateSegmentRequestInfo = function(requestInfo) {
     // example of setting CORS withCredentials
     requestInfo.withCredentials = true;
