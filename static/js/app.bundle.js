@@ -48,7 +48,7 @@
 	window.mediaManager = new cast.receiver.MediaManager(window.mediaElement);
 	window.castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
 	let appConfig = new cast.receiver.CastReceiverManager.Config();
-	appConfig.statusText = 'HELLO';
+	appConfig.statusText = 'TibCast';
 	
 	window.castReceiverManager.start(appConfig);
 	
