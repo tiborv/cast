@@ -26,7 +26,7 @@ mediaManager.onLoad = function (event) {
     requestInfo.headers['content-type'] = 'text/xml;charset=utf-8';
   };
   host.onError = log;
-  let protocol = cast.player.api.CreateSmoothStreamingProtocol(host);
+  let protocol = cast.player.api.CreateDashStreamingProtocol(host);
 
   if (protocol !== null) {
       log('lets go');
