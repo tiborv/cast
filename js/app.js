@@ -13,6 +13,10 @@ appConfig.statusText = 'TibCast';
 window.mediaManager['origOnLoad'] = mediaManager.onLoad;
 mediaManager.onLoad = function (event) {
   alertify.log("Loading...");
+  if (window.player !== null) {
+    player.unload();    // Must unload before starting again.
+    window.player = null;
+  }
   window.mediaManager['origOnLoad'](event);
 }
 
