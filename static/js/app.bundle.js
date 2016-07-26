@@ -54,7 +54,7 @@
 	
 	alertify.set({ delay: 10000000 });
 	var log = function log(e) {
-	  return alertify.log(JSON.stringify(e));
+	  return alertify.delay(100000).log(JSON.stringify(e));
 	};
 	
 	window.mediaElement = document.getElementById('media');
