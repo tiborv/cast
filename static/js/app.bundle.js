@@ -66,6 +66,11 @@
 	    player.unload(); // Must unload before starting again.
 	    window.player = null;
 	  }
+	
+	  if (event.data['media'] && event.data['media']['contentId']) {
+	    console.log('Starting media application');
+	    var url = event.data['media']['contentId'];
+	  }
 	  window.mediaManager['origOnLoad'](event);
 	};
 	
