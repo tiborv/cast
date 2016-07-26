@@ -17,7 +17,6 @@ mediaManager.onLoad = function (event) {
 var customMessageBus = castReceiverManager.getCastMessageBus('urn:x-cast:super.awesome.example');
 customMessageBus.onMessage =event => {
   alertify.log(JSON.stringify(event));
-);
 
 }
 

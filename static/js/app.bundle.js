@@ -66,7 +66,7 @@
 	
 	var customMessageBus = castReceiverManager.getCastMessageBus('urn:x-cast:super.awesome.example');
 	customMessageBus.onMessage = function (event) {
-	  alertify.log(event);
+	  alertify.log(JSON.stringify(event));
 	};
 	
 	window.castReceiverManager.start(appConfig);
