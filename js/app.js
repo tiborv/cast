@@ -29,7 +29,7 @@ window.mediaManager.onLoad = function (event) {
 
     log(cast.player.api.ErrorCode.MANIFEST)
     log(cast.player.api.ErrorCode.PLAYBACK)
-    log(cast.player.api.ErrorCode.PLAYBACK)
+    log(cast.player.api.ErrorCode.MEDIAKEYS)
     log(cast.player.api.ErrorCode.NETWORK)
 
     if (window.player) {
