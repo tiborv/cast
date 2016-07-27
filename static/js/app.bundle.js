@@ -67,7 +67,7 @@
 	appConfig.statusText = 'TibCast';
 	
 	window.mediaManager['origOnLoad'] = window.mediaManager.onLoad;
-	console.log(window.mediaManager['origOnLoad']);
+	console.log(JSON.stringify(window.mediaManager['origOnLoad']));
 	window.mediaManager.onLoad = function (event) {
 	  log(event.data);
 	  var url = event.data['media']['contentId'];
