@@ -67,7 +67,7 @@
 	
 	window.mediaManager['origOnLoad'] = window.mediaManager.onLoad;
 	window.mediaManager.onLoad = function (event) {
-	  //log(event.data);
+	  log(event.data);
 	  var url = event.data['media']['contentId'];
 	  var host = new cast.player.api.Host({ 'mediaElement': window.mediaElement, 'url': url });
 	  host.updateSegmentRequestInfo = function (requestInfo) {
