@@ -72,30 +72,6 @@
 	  log(event.data);
 	  var url = event.data['media']['contentId'];
 	  var host = new cast.player.api.Host({ 'mediaElement': window.mediaElement, 'url': url });
-	  return window.mediaManager['origOnLoad'](event);
-	  host.onError = function (errorCode) {
-	    switch (errorCode) {
-	      case cast.player.api.ErrorCode.MANIFEST:
-	        log("MANIFEST");
-	        break;
-	      case cast.player.api.ErrorCode.PLAYBACK:
-	        log("PLAYBACK");
-	        break;
-	      case cast.player.api.ErrorCode.MEDIAKEYS:
-	        log("MEDIAKEYS");
-	        break;
-	      case cast.player.api.ErrorCode.NETWORK:
-	        log("NETWORK");
-	        break;
-	      default:
-	        log("WUT");
-	
-	    }
-	    if (window.player) {
-	      window.player.unload();
-	      window.player = null;
-	    }
-	  };
 	  //host.updateManifestRequestInfo = log;
 	  window.player = new cast.player.api.Player(host);
 	  var protocol = cast.player.api.CreateSmoothStreamingProtocol(host);
