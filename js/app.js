@@ -19,7 +19,7 @@ window.mediaManager.onLoad = function (event) {
   // example of setting CORS withCredentials
   requestInfo.withCredentials = true;
   // example of setting headers
-  console.log("RUNNING!");
+  log("RUNNING!");
   requestInfo.headers = {};
   requestInfo.headers['content-type'] = 'text/xml;charset=utf-8';
   };
