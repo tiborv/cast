@@ -42,4 +42,3 @@ window.castReceiverManager.onSenderDisconnected = event => {
       window.close();
   }
 }
-X.prototype.$c

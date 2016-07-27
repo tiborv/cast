@@ -93,7 +93,6 @@
 	    window.close();
 	  }
 	};
-	X.prototype.$c;
 
 /***/ },
 /* 1 */
