@@ -17,7 +17,7 @@ window.mediaManager.onLoad = function (event) {
   var url = event.data['media']['contentId'];
   window.mediaManager['origOnLoad'](event)
 }
-window.mediaManager.onError = log;
+window.mediaManager.onLoadMetadataError = log;
 
 var customMessageBus = castReceiverManager.getCastMessageBus('urn:x-cast:tibcast');
 customMessageBus.onMessage = event => {
