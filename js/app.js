@@ -7,6 +7,7 @@ cast.receiver.logger.setLevelValue(cast.receiver.LoggerLevel.DEBUG)
 window.mediaElement = document.getElementById('media');
 window.mediaManager = new cast.receiver.MediaManager(window.mediaElement);
 window.castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
+window.castReceiverManager.start(appConfig);
 
 let appConfig = new cast.receiver.CastReceiverManager.Config();
 appConfig.statusText = 'TibCast';
@@ -16,14 +17,7 @@ window.mediaManager.onLoad = function (event) {
   log(event.data);
   var url = event.data['media']['contentId'];
   var host = new cast.player.api.Host({'mediaElement':window.mediaElement, 'url':url});
-  host.updateSegmentRequestInfo = function(requestInfo) {
-  // example of setting CORS withCredentials
-  requestInfo.withCredentials = true;
-  // example of setting headers
-  log("RUNNING!");
-  requestInfo.headers = {};
-  requestInfo.headers['content-type'] = 'text/xml;charset=utf-8';
-  };
+
   host.onError = function(errorCode) {
     switch (errorCode) {
       case cast.player.api.ErrorCode.MANIFEST:
@@ -49,7 +43,7 @@ window.mediaManager.onLoad = function (event) {
   };
   //host.updateManifestRequestInfo = log;
   window.player = new cast.player.api.Player(host);
-  let protocol = cast.player.api.CreateDashStreamingProtocol(host);
+  let protocol = cast.player.api.CreateSmoothStreamingProtocol(host);
   window.player.load(protocol, 0);
 
 }
@@ -59,7 +53,6 @@ customMessageBus.onMessage = event => {
   log(event);
 }
 
-window.castReceiverManager.start(appConfig);
 window.castReceiverManager.onSenderDisconnected = event => {
   if(window.castReceiverManager.getSenders().length == 0 &&
     event.reason == cast.receiver.system.DisconnectReason.REQUESTED_BY_SENDER) {
