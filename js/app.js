@@ -7,10 +7,10 @@ cast.receiver.logger.setLevelValue(cast.receiver.LoggerLevel.DEBUG)
 window.mediaElement = document.getElementById('media');
 window.mediaManager = new cast.receiver.MediaManager(window.mediaElement);
 window.castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
-window.castReceiverManager.start(appConfig);
 
 let appConfig = new cast.receiver.CastReceiverManager.Config();
 appConfig.statusText = 'TibCast';
+window.castReceiverManager.start(appConfig);
 
 window.mediaManager['origOnLoad'] = window.mediaManager.onLoad;
 window.mediaManager.onLoad = function (event) {
