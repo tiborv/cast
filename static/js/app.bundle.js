@@ -69,7 +69,6 @@
 	window.mediaManager['origOnLoad'] = window.mediaManager.onLoad;
 	window.mediaManager.onLoad = function (event) {
 	  var url = event.data['media']['contentId'];
-	
 	  window.mediaManager['origOnLoad'](event);
 	};
 	
