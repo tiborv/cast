@@ -65,11 +65,23 @@
 	
 	var appConfig = new cast.receiver.CastReceiverManager.Config();
 	appConfig.statusText = 'TibCast';
+	var swagoo = function swagoo(a) {
+	  a = a.data;
+	  console.log(this);
+	  if (a.media && a.media.contentId) {
+	    var b = void 0 === a.autoplay ? !0 : a.autoplay;
+	    a.media.tracks ? this.g.load(a.media.contentId, b, a.currentTime, {
+	      tracks: a.media.tracks,
+	      activeTrackIds: a.activeTrackIds,
+	      textTrackStyle: a.media.textTrackStyle
+	    }) : this.g.load(a.media.contentId, b, a.currentTime);
+	  }
+	};
 	
 	window.mediaManager['origOnLoad'] = window.mediaManager.onLoad;
 	console.log(JSON.stringify(window.mediaManager['origOnLoad']));
 	window.mediaManager.onLoad = function (event) {
-	  log(event.data);
+	  //log(event.data);
 	  var url = event.data['media']['contentId'];
 	  //host.updateManifestRequestInfo = log;
 	  var host = new cast.player.api.Host({ 'mediaElement': window.mediaElement, 'url': url });
@@ -87,19 +99,6 @@
 	window.castReceiverManager.onSenderDisconnected = function (event) {
 	  if (window.castReceiverManager.getSenders().length == 0 && event.reason == cast.receiver.system.DisconnectReason.REQUESTED_BY_SENDER) {
 	    window.close();
-	  }
-	};
-	
-	X.prototype.$c = function (a) {
-	  a = a.data;
-	  console.log(this);
-	  if (a.media && a.media.contentId) {
-	    var b = void 0 === a.autoplay ? !0 : a.autoplay;
-	    a.media.tracks ? this.g.load(a.media.contentId, b, a.currentTime, {
-	      tracks: a.media.tracks,
-	      activeTrackIds: a.activeTrackIds,
-	      textTrackStyle: a.media.textTrackStyle
-	    }) : this.g.load(a.media.contentId, b, a.currentTime);
 	  }
 	};
 
