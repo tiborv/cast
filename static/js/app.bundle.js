@@ -101,7 +101,7 @@
 	      window.player = null;
 	    }
 	  };
-	  //host.updateManifestRequestInfo(log);
+	  host.updateManifestRequestInfo = log;
 	  window.player = new cast.player.api.Player(host);
 	  var protocol = cast.player.api.CreateDashStreamingProtocol(host);
 	  window.player.load(protocol, 0);
