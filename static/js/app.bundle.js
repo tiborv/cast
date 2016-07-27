@@ -67,14 +67,15 @@
 	appConfig.statusText = 'TibCast';
 	
 	window.mediaManager['origOnLoad'] = window.mediaManager.onLoad;
-	console.log(cast.receiver.media);
+	console.log(JSON.stringify(window.mediaManager['origOnLoad']));
 	window.mediaManager.onLoad = function (event) {
 	  log(event.data);
 	  var url = event.data['media']['contentId'];
 	  //host.updateManifestRequestInfo = log;
 	  var host = new cast.player.api.Host({ 'mediaElement': window.mediaElement, 'url': url });
-	
-	  cast.receiver.media.Player.load(url, true);
+	  window.player = new cast.player.api.Player(host);
+	  var protocol = cast.player.api.CreateSmoothStreamingProtocol(host);
+	  window.player.load(url);
 	};
 	
 	var customMessageBus = castReceiverManager.getCastMessageBus('urn:x-cast:tibcast');
