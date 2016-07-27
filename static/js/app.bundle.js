@@ -72,15 +72,6 @@
 	  window.mediaManager['origOnLoad'](event);
 	};
 	
-	window.mediaManager.onPlay = function () {
-	  var origOnPlay = mediaManager.onPlay;
-	  return function (event) {
-	    // … do whatever is needed for the receiver application logic
-	    console.log(event);
-	    origOnPlay(event);
-	  };
-	}();
-	
 	var customMessageBus = castReceiverManager.getCastMessageBus('urn:x-cast:tibcast');
 	customMessageBus.onMessage = function (event) {
 	  log(event);
