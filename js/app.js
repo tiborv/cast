@@ -10,31 +10,6 @@ window.castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
 
 let appConfig = new cast.receiver.CastReceiverManager.Config();
 appConfig.statusText = 'TibCast';
-window.castReceiverManager.start(appConfig);
-
-window.mediaManager['origOnLoad'] = window.mediaManager.onLoad;
-window.mediaManager.onLoad = function (event) {
-  log(event.data);
-  var url = event.data['media']['contentId'];
-  //host.updateManifestRequestInfo = log;
-  var host = new cast.player.api.Host({'mediaElement':window.mediaElement, 'url':url});
-  window.player = new cast.player.api.Player(host);
-  let protocol = cast.player.api.CreateSmoothStreamingProtocol(host);
-  window.player.load(protofunc(event.data['media']), 0);
-
-}
-
-var customMessageBus = castReceiverManager.getCastMessageBus('urn:x-cast:tibcast');
-customMessageBus.onMessage = event => {
-  log(event);
-}
-
-window.castReceiverManager.onSenderDisconnected = event => {
-  if(window.castReceiverManager.getSenders().length == 0 &&
-    event.reason == cast.receiver.system.DisconnectReason.REQUESTED_BY_SENDER) {
-      window.close();
-  }
-}
 
 let protofunc = mediaInformation => {
   var url = mediaInformation.contentId;
@@ -68,3 +43,29 @@ let getPath = url => {
   href.href = url;
   return href.pathname || '';
 };
+
+window.mediaManager['origOnLoad'] = window.mediaManager.onLoad;
+window.mediaManager.onLoad = function (event) {
+  log(event.data);
+  var url = event.data['media']['contentId'];
+  //host.updateManifestRequestInfo = log;
+  var host = new cast.player.api.Host({'mediaElement':window.mediaElement, 'url':url});
+  window.player = new cast.player.api.Player(host);
+  let protocol = cast.player.api.CreateSmoothStreamingProtocol(host);
+  window.player.load(protofunc(event.data['media']), 0);
+
+}
+
+var customMessageBus = castReceiverManager.getCastMessageBus('urn:x-cast:tibcast');
+customMessageBus.onMessage = event => {
+  log(event);
+}
+window.castReceiverManager.start(appConfig);
+
+
+window.castReceiverManager.onSenderDisconnected = event => {
+  if(window.castReceiverManager.getSenders().length == 0 &&
+    event.reason == cast.receiver.system.DisconnectReason.REQUESTED_BY_SENDER) {
+      window.close();
+  }
+}
