@@ -73,9 +73,8 @@
 	  var url = event.data['media']['contentId'];
 	  //host.updateManifestRequestInfo = log;
 	  var host = new cast.player.api.Host({ 'mediaElement': window.mediaElement, 'url': url });
-	  window.player = new cast.player.api.Player(host);
-	  var protocol = cast.player.api.CreateSmoothStreamingProtocol(host);
-	  window.player.load(url);
+	
+	  cast.receiver.media.Player.load(url, true);
 	};
 	
 	var customMessageBus = castReceiverManager.getCastMessageBus('urn:x-cast:tibcast');
