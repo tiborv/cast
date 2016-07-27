@@ -68,7 +68,9 @@
 	
 	window.mediaManager['origOnLoad'] = window.mediaManager.onLoad;
 	window.mediaManager.onLoad = function (event) {
-	  window.mediaManager.onLoadMetadataError = console.log;
+	  window.mediaManager.onLoadMetadataError = function (e) {
+	    return console.log(JSON.stringify(e));
+	  };
 	  var url = event.data['media']['contentId'];
 	  window.mediaManager['origOnLoad'](event);
 	};
