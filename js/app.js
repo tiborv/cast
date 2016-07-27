@@ -39,12 +39,12 @@ window.castReceiverManager.onSenderDisconnected = event => {
 let protofunc = mediaInformation => {
   var url = mediaInformation.contentId;
   var type = mediaInformation.contentType || '';
-  var path = sampleplayer.getPath_(url) || '';
-  if (sampleplayer.getExtension_(path) === 'm3u8' ||
+  var path = getPath(url) || '';
+  if (getExtension(path) === 'm3u8' ||
           type === 'application/x-mpegurl' ||
           type === 'application/vnd.apple.mpegurl') {
     return cast.player.api.CreateHlsStreamingProtocol;
-  } else if (sampleplayer.getExtension_(path) === 'mpd' ||
+  } else if (getExtension(path) === 'mpd' ||
           type === 'application/dash+xml') {
     return cast.player.api.CreateDashStreamingProtocol;
   } else if (path.indexOf('.ism') > -1 ||
