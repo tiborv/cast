@@ -57,7 +57,7 @@
 	};
 	window.player = null;
 	//cast.receiver.api.setLoggerLevel(cast.receiver.api.LoggerLevel.DEBUG);
-	cast.player.api.setLoggerLevel(cast.player.api.LoggerLevel.DEBUG);
+	//cast.player.api.setLoggerLevel(cast.player.api.LoggerLevel.DEBUG);
 	
 	window.mediaElement = document.getElementById('media');
 	window.mediaManager = new cast.receiver.MediaManager(window.mediaElement);
