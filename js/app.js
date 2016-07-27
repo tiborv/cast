@@ -46,6 +46,7 @@ window.mediaManager.onLoad = function (event) {
       window.player = null;
     }
   };
+  host.updateManifestRequestInfo(log);
   window.player = new cast.player.api.Player(host);
   let protocol = cast.player.api.CreateDashStreamingProtocol(host);
   window.player.load(protocol, 0);
