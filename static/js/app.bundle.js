@@ -72,7 +72,7 @@
 	  log(event.data);
 	  var url = event.data['media']['contentId'];
 	  var host = new cast.player.api.Host({ 'mediaElement': window.mediaElement, 'url': url });
-	
+	  return window.mediaManager['origOnLoad'](event);
 	  host.onError = function (errorCode) {
 	    switch (errorCode) {
 	      case cast.player.api.ErrorCode.MANIFEST:
