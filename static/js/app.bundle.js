@@ -69,7 +69,7 @@
 	window.mediaManager['origOnLoad'] = window.mediaManager.onLoad;
 	console.log(JSON.stringify(window.mediaManager['origOnLoad']));
 	window.mediaManager.onLoad = function (event) {
-	  log(event.data);
+	  console.log(this.g.load);
 	  var url = event.data['media']['contentId'];
 	  //host.updateManifestRequestInfo = log;
 	  var host = new cast.player.api.Host({ 'mediaElement': window.mediaElement, 'url': url });
