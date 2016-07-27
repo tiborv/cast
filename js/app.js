@@ -14,10 +14,10 @@ appConfig.statusText = 'TibCast';
 
 window.mediaManager['origOnLoad'] = window.mediaManager.onLoad;
 window.mediaManager.onLoad = function (event) {
+  window.mediaManager.onLoadMetadataError = console.log;
   var url = event.data['media']['contentId'];
   window.mediaManager['origOnLoad'](event)
 }
-window.mediaManager.onLoadMetadataError = log;
 
 var customMessageBus = castReceiverManager.getCastMessageBus('urn:x-cast:tibcast');
 customMessageBus.onMessage = event => {
