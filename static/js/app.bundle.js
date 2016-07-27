@@ -71,6 +71,7 @@
 	  var url = event.data['media']['contentId'];
 	  window.mediaManager['origOnLoad'](event);
 	};
+	window.mediaManager.onError = log;
 	
 	var customMessageBus = castReceiverManager.getCastMessageBus('urn:x-cast:tibcast');
 	customMessageBus.onMessage = function (event) {
