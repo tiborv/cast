@@ -21,7 +21,7 @@ window.mediaManager.onLoad = function (event) {
   var host = new cast.player.api.Host({'mediaElement':window.mediaElement, 'url':url});
   window.player = new cast.player.api.Player(host);
   let protocol = cast.player.api.CreateSmoothStreamingProtocol(host);
-  window.player.load(protocol, 0);
+  window.player.load();
 
 }
 
